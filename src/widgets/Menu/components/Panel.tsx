@@ -4,6 +4,7 @@ import PanelBody from "./PanelBody";
 import PanelFooter from "./PanelFooter";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../config";
 import { PanelProps, PushedProps } from "../types";
+import SolidProofButton from "./SolidProofButton";
 
 interface Props extends PanelProps, PushedProps {
   showMenu: boolean;
@@ -40,6 +41,7 @@ const Panel: React.FC<Props> = (props) => {
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
       <PanelBody {...props} />
+      <SolidProofButton link="https://github.com/solidproof/smart-contract-audits/blob/main/SmartContract_Audit_Solidproof_GuitarSwapToken.pdf" />
       <PanelFooter {...props} />
     </StyledPanel>
   );
