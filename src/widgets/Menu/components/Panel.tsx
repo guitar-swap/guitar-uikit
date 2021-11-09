@@ -5,6 +5,8 @@ import PanelFooter from "./PanelFooter";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../config";
 import { PanelProps, PushedProps } from "../types";
 import SolidProofButton from "./SolidProofButton";
+import EtherAuthorityButton from "./EtherAuthorityButton";
+import { Flex } from "../../..";
 
 interface Props extends PanelProps, PushedProps {
   showMenu: boolean;
@@ -36,12 +38,25 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   }
 `;
 
+const AuditSection = styled.div<{ isPushed: boolean }>`
+  display: ${({ isPushed }) => isPushed ? 'flex' : 'none'};
+  gap: 5px;
+  padding: 0 5px;
+
+  & > * {
+    flex: 1;
+  }
+`
+
 const Panel: React.FC<Props> = (props) => {
   const { isPushed, showMenu } = props;
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
       <PanelBody {...props} />
-      <SolidProofButton link="https://github.com/solidproof/smart-contract-audits/blob/main/SmartContract_Audit_Solidproof_GuitarSwapToken.pdf" />
+      <AuditSection isPushed={isPushed}>
+        <SolidProofButton link="https://github.com/solidproof/smart-contract-audits/blob/main/SmartContract_Audit_Solidproof_GuitarSwapToken.pdf" />
+        <EtherAuthorityButton link="https://github.com/guitar-swap/audit/blob/main/GuitarSwap%20Protocol%20-%20Smart%20Contracts%20Security%20Audit%20Report.pdf" />
+      </AuditSection>
       <PanelFooter {...props} />
     </StyledPanel>
   );
