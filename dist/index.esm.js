@@ -4110,7 +4110,7 @@ var socials = [
     {
         label: "Twitter",
         icon: "TwitterIcon",
-        href: "https://twitter.com/Guitar_swap",
+        href: "https://twitter.com/Guitarswap_dex",
     },
 ];
 var MENU_HEIGHT = 64;
